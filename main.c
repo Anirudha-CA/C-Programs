@@ -1,38 +1,34 @@
-#include<stdio.h>
-void main()
-{ 
-    int i,n,a[10],lr,j;
-    int grt,temp;
-    printf("Enter the number of items\n");
+/******************************************************************************
+
+                            Online C Compiler.
+                Code, Compile, Run and Debug C program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <stdio.h>
+
+int main()
+{
+    int arr[100],i,temp,n,count=0;
+    printf("Enter size\n");
     scanf("%d",&n);
-    printf("Enter the array elements\n");
+    printf("Enter Elements");
     for(i=0;i<n;i++)
-    scanf("%d",&a[i]);
-    printf("Enter the position of respective largest number\n");
-    scanf("%d",&lr);
-    printf("********\n");
+    scanf("%d",&arr[i]);
     for(i=0;i<n;i++)
     {
-        for(j=i+1;j<n;j++)
+        if(arr[i]<0)
         {
-        if(a[i]<a[j])
-            {
-            temp=a[i];
-            a[i]=a[j];
-            a[j]=temp;
-            }
+            temp=arr[count];
+            arr[count]=arr[i];
+            arr[i]=temp;
+            count++;
         }
     }
+    printf("Shifted Array\n");
     for(i=0;i<n;i++)
-    {
-        printf("%d\n",a[i]);
-        if(lr==i+1)
-        {
-            grt=a[i];
-        }
-    }
-    printf("********\n");
-    printf("%d largest number is %d\n",lr,grt);
+    printf("%d",arr[i]);
 
+    return 0;
 }
-
